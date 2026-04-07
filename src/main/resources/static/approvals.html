@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pending Approvals | ArchiveHub</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="ri-shield-check-fill" style="color: var(--primary-color);"></i>
+                    <span>ArchiveHub</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="files.html" class="nav-link">
+                            <i class="ri-folder-3-line"></i>
+                            <span>My Files</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="collections.html" class="nav-link">
+                            <i class="ri-heart-line"></i>
+                            <span>Collections</span>
+                        </a>
+                    </li>
+                    <li class="nav-item admin-link" style="display: none;">
+                        <a href="admin.html" class="nav-link">
+                            <i class="ri-shield-user-line"></i>
+                            <span>Admin Panel</span>
+                        </a>
+                    </li>
+                    <li class="nav-item approvals-link" style="display: none;">
+                        <a href="approvals.html" class="nav-link active">
+                            <i class="ri-user-follow-line"></i>
+                            <span>Approvals</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="profile.html" class="nav-link">
+                            <i class="ri-user-3-line"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" style="margin-top: auto;">
+                        <a href="#" id="logout-btn" class="nav-link">
+                            <i class="ri-logout-box-r-line"></i>
+                            <span>Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <span class="online-dot"></span>
+                    </div>
+                    <div class="user-info">
+                        <h4>Loading...</h4>
+                        <p>...</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="search-bar">
+                    <i class="ri-search-line"></i>
+                    <input type="text" placeholder="Search requests...">
+                </div>
+
+                <div class="header-actions">
+                    <button class="icon-btn" title="Notifications">
+                        <i class="ri-notification-3-line"></i>
+                    </button>
+                    <button class="icon-btn" title="Toggle Theme">
+                        <i class="ri-moon-line"></i>
+                    </button>
+                    <div style="width: 1px; height: 24px; background: var(--border-light); margin: 0 0.5rem;"></div>
+                    <a href="new-entry.html" class="btn-primary">
+                        <i class="ri-upload-cloud-2-line"></i>
+                        <span>Upload</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <div class="page-header" style="margin-bottom: 3rem;">
+                    <div class="page-title">
+                        <h1>Pending Approvals</h1>
+                        <p>Review and approve new user registration requests.</p>
+                    </div>
+                </div>
+
+                <!-- Pending Approvals Table -->
+                <div class="section-title" id="requests-section" style="margin-top: 2rem; display: flex;">
+                    <h2 style="font-size: 1.5rem; font-weight: 700;">Account Requests</h2>
+                    <span class="status-badge role" id="request-count-badge">0 Requests</span>
+                </div>
+
+                <div class="data-table-container" id="requests-table-container">
+                    <table class="data-table" id="requests-table">
+                        <thead>
+                            <tr>
+                                <th>User Info</th>
+                                <th>Requested Role</th>
+                                <th>Date</th>
+                                <th style="text-align: center;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Pending requests will be loaded here -->
+                        </tbody>
+                    </table>
+                    <div id="no-requests-msg" style="padding: 4rem; text-align: center; display: none;">
+                        <i class="ri-user-received-2-line"
+                            style="font-size: 3rem; color: var(--border-color); display: block; margin-bottom: 1rem;"></i>
+                        <p style="color: var(--text-muted);">No pending registration requests.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

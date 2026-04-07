@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Documents | ArchiveHub</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        .upload-zone {
+            border: 2px dashed var(--border-color);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 2.5rem;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--primary-color);
+            background: rgba(59, 130, 246, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .upload-zone i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .upload-zone h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-zone p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .file-card {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            background: var(--surface-color);
+            padding: 1.25rem;
+            border-radius: 1.25rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .file-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .file-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .file-info {
+            flex: 1;
+        }
+
+        .file-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .file-info p {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .file-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="ri-shield-check-fill" style="color: var(--primary-color);"></i>
+                    <span>ArchiveHub</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <i class="ri-dashboard-line"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="files.html" class="nav-link">
+                            <i class="ri-folder-3-line"></i>
+                            <span>All Archives</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="collections.html" class="nav-link">
+                            <i class="ri-heart-line"></i>
+                            <span>Collections</span>
+                        </a>
+                    </li>
+                    <li class="nav-item faculty-only">
+                        <a href="faculty-docs.html" class="nav-link active">
+                            <i class="ri-file-user-line"></i>
+                            <span>Personal Docs</span>
+                        </a>
+                    </li>
+                    <li class="nav-item faculty-only">
+                        <a href="faculty-stats.html" class="nav-link">
+                            <i class="ri-bar-chart-box-line"></i>
+                            <span>Academic Stats</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="profile.html" class="nav-link">
+                            <i class="ri-user-3-line"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" style="margin-top: auto;">
+                        <a href="#" id="logout-btn" class="nav-link">
+                            <i class="ri-logout-box-r-line"></i>
+                            <span>Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <span class="online-dot"></span>
+                    </div>
+                    <div class="user-info">
+                        <h4>Loading...</h4>
+                        <p>...</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="search-bar">
+                    <i class="ri-search-line"></i>
+                    <input type="text" placeholder="Search your personal documents...">
+                </div>
+
+                <div class="header-actions">
+                    <button class="icon-btn" title="Notifications">
+                        <i class="ri-notification-3-line"></i>
+                    </button>
+                    <button class="icon-btn" title="Toggle Theme">
+                        <i class="ri-moon-line"></i>
+                    </button>
+                    <label for="personal-upload-input" class="btn-primary" id="upload-personal-btn" style="cursor: pointer; border: 1px solid hsla(228, 88%, 58%, 0.2); background: hsla(228, 88%, 58%, 0.1); color: var(--primary); box-shadow: none;">
+                        <i class="ri-upload-2-line"></i>
+                        <span>Upload Document</span>
+                    </label>
+                    <input type="file" id="personal-upload-input" style="display: none;" onchange="handlePersonalUpload(this)">
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1>Personal Documents</h1>
+                        <p>Upload and manage documents that are only visible to you. Secure and private storage.</p>
+                    </div>
+                </div>
+
+                <div class="upload-zone" onclick="document.getElementById('personal-upload-input').click()">
+                    <i class="ri-upload-cloud-2-line"></i>
+                    <h3>Click or drag files here to upload</h3>
+                    <p>Supported formats: PDF, DOCX, PNG, JPG (Max 10MB)</p>
+                </div>
+
+                <div class="files-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <!-- Files loaded by JS -->
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

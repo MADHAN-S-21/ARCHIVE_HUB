@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Files | ArchiveHub</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="ri-shield-check-fill" style="color: var(--primary-color);"></i>
+                    <span>ArchiveHub</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <i class="ri-dashboard-line"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="files.html" class="nav-link active">
+                            <i class="ri-folder-3-line"></i>
+                            <span>My Files</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="collections.html" class="nav-link">
+                            <i class="ri-heart-line"></i>
+                            <span>Collections</span>
+                        </a>
+                    </li>
+                    <li class="nav-item faculty-only" style="display: none;">
+                        <a href="faculty-docs.html" class="nav-link">
+                            <i class="ri-file-user-line"></i>
+                            <span>Personal Docs</span>
+                        </a>
+                    </li>
+                    <li class="nav-item faculty-only" style="display: none;">
+                        <a href="faculty-stats.html" class="nav-link">
+                            <i class="ri-bar-chart-box-line"></i>
+                            <span>Academic Stats</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="admin.html" class="nav-link">
+                            <i class="ri-shield-user-line"></i>
+                            <span>User Portal</span>
+                        </a>
+                    </li>
+                    <li class="nav-item approvals-link" style="display: none;">
+                        <a href="approvals.html" class="nav-link">
+                            <i class="ri-user-follow-line"></i>
+                            <span>Approvals</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="profile.html" class="nav-link">
+                            <i class="ri-user-3-line"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" style="margin-top: auto;">
+                        <a href="#" id="logout-btn" class="nav-link">
+                            <i class="ri-logout-box-r-line"></i>
+                            <span>Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <span class="online-dot"></span>
+                    </div>
+                    <div class="user-info">
+                        <h4>Loading...</h4>
+                        <p>...</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="search-bar">
+                    <i class="ri-search-line"></i>
+                    <input type="text" placeholder="Search archives...">
+                </div>
+
+                <div class="header-actions">
+                    <button class="icon-btn">
+                        <i class="ri-notification-3-line"></i>
+                    </button>
+                    <button class="icon-btn">
+                        <i class="ri-moon-line"></i>
+                    </button>
+                    <a href="new-entry.html" id="upload-link-context" class="btn-primary">
+                        <i class="ri-add-line"></i>
+                        <span>New Entry</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- My Files Content -->
+            <div class="page-content">
+                <div class="page-header" style="display: flex; justify-content: space-between; align-items: flex-end;">
+                    <div class="page-title">
+                        <h1 id="folder-name">My Files</h1>
+                        <p id="folder-description">Manage, organize, and filter your archived digital assets.</p>
+                    </div>
+                    <div id="back-to-collections" style="display: none;">
+                        <a href="collections.html" class="icon-btn"
+                            style="width: auto; padding: 0 1rem; border-radius: 0.5rem; text-decoration: none; font-size: 0.875rem;">
+                            <i class="ri-arrow-left-line"></i> Back to Collections
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Filter Bar -->
+                <div class="filter-bar">
+                    <div class="filter-controls">
+                        <div class="search-input-group">
+                            <i class="ri-search-line"></i>
+                            <input type="text" placeholder="Search archives by name or type...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Files Grid -->
+                <div class="files-grid stagger-1">
+                    <p style="grid-column: 1/-1; text-align: center; padding: 2rem;">Loading archives...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

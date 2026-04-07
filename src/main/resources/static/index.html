@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | ArchiveHub</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="ri-shield-check-fill" style="color: var(--primary-color);"></i>
+                    <span>ArchiveHub</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">
+                            <i class="ri-dashboard-line"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="files.html" class="nav-link">
+                            <i class="ri-folder-3-line"></i>
+                            <span>My Files</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="collections.html" class="nav-link">
+                            <i class="ri-heart-line"></i>
+                            <span>Collections</span>
+                        </a>
+                    </li>
+                    <li class="nav-item faculty-only" style="display: none;">
+                        <a href="faculty-docs.html" class="nav-link">
+                            <i class="ri-file-user-line"></i>
+                            <span>Personal Docs</span>
+                        </a>
+                    </li>
+                    <li class="nav-item faculty-only" style="display: none;">
+                        <a href="faculty-stats.html" class="nav-link">
+                            <i class="ri-bar-chart-box-line"></i>
+                            <span>Academic Stats</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="admin.html" class="nav-link">
+                            <i class="ri-shield-user-line"></i>
+                            <span>Admin Portal</span>
+                        </a>
+                    </li>
+                    <li class="nav-item approvals-link" style="display: none;">
+                        <a href="approvals.html" class="nav-link">
+                            <i class="ri-user-follow-line"></i>
+                            <span>Approvals</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="profile.html" class="nav-link">
+                            <i class="ri-user-3-line"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" style="margin-top: auto;">
+                        <a href="#" id="logout-btn" class="nav-link">
+                            <i class="ri-logout-box-r-line"></i>
+                            <span>Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <span class="online-dot"></span>
+                    </div>
+                    <div class="user-info">
+                        <h4>Loading...</h4>
+                        <p>...</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="search-bar">
+                    <i class="ri-search-line"></i>
+                    <input type="text" placeholder="Search system...">
+                </div>
+
+                <div class="header-actions">
+                    <button class="icon-btn">
+                        <i class="ri-notification-3-line"></i>
+                    </button>
+                    <button class="icon-btn">
+                        <i class="ri-moon-line"></i>
+                    </button>
+                    <a href="create-user.html" id="dash-add-user-btn" class="btn-primary"
+                        style="display: none; background: hsla(228, 88%, 58%, 0.1); color: var(--primary); border: 1px solid hsla(228, 88%, 58%, 0.2); box-shadow: none;">
+                        <i class="ri-user-add-line"></i>
+                        <span>Add User</span>
+                    </a>
+                    <a href="new-entry.html" class="btn-primary">
+                        <i class="ri-upload-cloud-2-line"></i>
+                        <span>Upload</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="page-content">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1>Overview</h1>
+                        <p>Welcome back, Madhan. Here's your archival summary.</p>
+                    </div>
+
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card stagger-1">
+                        <div class="stat-icon blue">
+                            <i class="ri-file-text-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="stat-total-archives">--</h3>
+                            <p>Total Archives</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card stagger-2">
+                        <div class="stat-icon purple">
+                            <i class="ri-group-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="stat-active-users">--</h3>
+                            <p>Active Users</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card stagger-3">
+                        <div class="stat-icon orange">
+                            <i class="ri-hard-drive-2-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="stat-storage-used">--</h3>
+                            <p>Storage Used</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card stagger-4">
+                        <div class="stat-icon green">
+                            <i class="ri-time-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="stat-recent-uploads">--</h3>
+                            <p>Recent Uploads</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card stagger-5">
+                        <div class="stat-icon red">
+                            <i class="ri-award-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="stat-cgpa">--</h3>
+                            <p>CGPA</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card stagger-6">
+                        <div class="stat-icon teal">
+                            <i class="ri-calendar-check-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="stat-attendance">--</h3>
+                            <p>Attendance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SGPA Chart Section -->
+                <div class="sgpa-chart-section glass-container stagger-1" style="margin-top: 2rem; padding: 1.5rem;">
+                    <div style="margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: baseline;">
+                        <h2 style="font-size: 1.125rem; font-weight: 600;">Semester Grade Point Average (SGPA)</h2>
+                        <span id="sgpa-update-status" style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;"></span>
+                    </div>
+                    <div style="width: 100%; height: 250px; position: relative;">
+                        <canvas id="sgpaChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Activity Table -->
+                <div class="recent-activity">
+                    <div class="section-title">
+                        <h2>Recent Archives</h2>
+                        <a href="files.html" class="view-all">View All Files</a>
+                    </div>
+
+                    <div class="data-table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>File Name</th>
+                                    <th>Status</th>
+                                    <th>Size</th>
+                                    <th>Date Uploaded</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="5" style="text-align: center; padding: 2rem;">Loading recent
+                                        archives...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

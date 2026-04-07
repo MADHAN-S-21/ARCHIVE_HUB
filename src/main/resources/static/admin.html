@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | ArchiveHub</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="ri-shield-check-fill" style="color: var(--primary-color);"></i>
+                    <span>ArchiveHub</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="files.html" class="nav-link">
+                            <i class="ri-folder-3-line"></i>
+                            <span>My Files</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="collections.html" class="nav-link">
+                            <i class="ri-heart-line"></i>
+                            <span>Collections</span>
+                        </a>
+                    </li>
+                    <li class="nav-item faculty-only" style="display: none;">
+                        <a href="faculty-stats.html" class="nav-link">
+                            <i class="ri-bar-chart-box-line"></i>
+                            <span>Academic Stats</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="admin.html" class="nav-link active">
+                            <i class="ri-shield-user-line"></i>
+                            <span>Admin Panel</span>
+                        </a>
+                    </li>
+                    <li class="nav-item approvals-link" style="display: none;">
+                        <a href="approvals.html" class="nav-link">
+                            <i class="ri-user-follow-line"></i>
+                            <span>Approvals</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="profile.html" class="nav-link">
+                            <i class="ri-user-3-line"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" style="margin-top: auto;">
+                        <a href="#" id="logout-btn" class="nav-link">
+                            <i class="ri-logout-box-r-line"></i>
+                            <span>Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <span class="online-dot"></span>
+                    </div>
+                    <div class="user-info">
+                        <h4>Loading...</h4>
+                        <p>...</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="search-bar">
+                    <i class="ri-search-line"></i>
+                    <input type="text" placeholder="Search system...">
+                </div>
+
+                <div class="header-actions">
+                    <button class="icon-btn" title="Notifications">
+                        <i class="ri-notification-3-line"></i>
+                    </button>
+                    <button class="icon-btn" title="Toggle Theme">
+                        <i class="ri-moon-line"></i>
+                    </button>
+                    <div style="width: 1px; height: 24px; background: var(--border-light); margin: 0 0.5rem;"></div>
+                    <a href="create-user.html" id="add-user-btn" class="btn-primary" title="Add User"
+                        style="height: 44px; padding: 0 1.25rem; border-radius: 12px; font-size: 0.9rem; text-decoration: none;">
+                        <i class="ri-user-add-line"></i> Add User
+                    </a>
+                    <div style="width: 1px; height: 24px; background: var(--border-light); margin: 0 0.5rem;"></div>
+                    <a href="new-entry.html" class="btn-primary">
+                        <i class="ri-upload-cloud-2-line"></i>
+                        <span>Upload</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Admin Content -->
+            <div class="page-content">
+                <div class="page-header" style="margin-bottom: 3rem;">
+                    <div class="page-title">
+                        <h1>Admin Panel</h1>
+                        <p>Manage system users, roles, and overall archive settings.</p>
+                    </div>
+                </div>
+
+                <!-- Admin Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card stagger-1">
+                        <div class="stat-icon blue">
+                            <i class="ri-group-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>1,284</h3>
+                            <p>Total Users</p>
+                        </div>
+                    </div>
+                    <div class="stat-card stagger-2">
+                        <div class="stat-icon green">
+                            <i class="ri-shield-check-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>42</h3>
+                            <p>Active Sessions</p>
+                        </div>
+                    </div>
+                    <div class="stat-card stagger-3">
+                        <div class="stat-icon orange">
+                            <i class="ri-error-warning-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>0</h3>
+                            <p>Security Alerts</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Student Management Table -->
+                <div class="section-title"
+                    style="margin-top: 2rem; display: flex; justify-content: space-between; align-items: center;">
+                    <h2 style="font-size: 1.5rem; font-weight: 700;">User Management</h2>
+                    <div class="search-bar" style="width: 240px;">
+                        <i class="ri-search-line"></i>
+                        <input type="text" placeholder="Search users..." style="font-size: 0.9rem;">
+                    </div>
+                </div>
+
+                <div class="data-table-container stagger-4">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Joined</th>
+                                <th style="text-align: center;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="file-cell">
+                                        <div class="user-avatar" style="width: 32px; height: 32px; font-size: 0.75rem;">
+                                            MD</div>
+                                        <div class="file-info">
+                                            <span>Madhan</span>
+                                            <span class="file-meta">madhan@gmail.com</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="status-badge role">Admin</span></td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td style="color: var(--text-muted); font-size: 0.9rem;">Oct 12, 2023</td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="icon-btn delete-btn"><i class="ri-delete-bin-line"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="file-cell">
+                                        <div class="user-avatar" style="width: 32px; height: 32px; font-size: 0.75rem;">
+                                            SS</div>
+                                        <div class="file-info">
+                                            <span>Sarah Smith</span>
+                                            <span class="file-meta">sarah@university.edu</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="status-badge role">Editor</span></td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td style="color: var(--text-muted); font-size: 0.9rem;">Nov 05, 2023</td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="icon-btn delete-bin-line">
+                                            <i class="ri-delete-bin-line"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="file-cell">
+                                        <div class="user-avatar" style="width: 32px; height: 32px; font-size: 0.75rem;">
+                                            MC</div>
+                                        <div class="file-info">
+                                            <span>Michael Chen</span>
+                                            <span class="file-meta">michael@university.edu</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="status-badge role">Viewer</span></td>
+                                <td><span class="status-badge inactive">Inactive</span></td>
+                                <td style="color: var(--text-muted); font-size: 0.9rem;">Jan 15, 2024</td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="icon-btn delete-btn"><i class="ri-delete-bin-line"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="file-cell">
+                                        <div class="user-avatar" style="width: 32px; height: 32px; font-size: 0.75rem;">
+                                            EW</div>
+                                        <div class="file-info">
+                                            <span>Emma Wilson</span>
+                                            <span class="file-meta">emma.w@university.edu</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="status-badge role">Editor</span></td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td style="color: var(--text-muted); font-size: 0.9rem;">Feb 20, 2024</td>
+                                <td>
+                                    <div style="display: flex; gap: 0.5rem;">
+                                        <button class="icon-btn"
+                                            style="width: 36px; height: 36px; border-radius: 10px; color: var(--danger);"><i
+                                                class="ri-delete-bin-line"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div
+                        style="padding: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+                        <span class="text-sm text-muted" id="user-count-footer">Showing users...</span>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="icon-btn"
+                                style="width: auto; height: 32px; font-size: 0.75rem; padding: 0 0.75rem; border-radius: 0.5rem;">Previous</button>
+                            <button class="icon-btn"
+                                style="width: 32px; height: 32px; font-size: 0.75rem; background: var(--primary-color); color: white; border-color: var(--primary-color);">1</button>
+                            <button class="icon-btn" style="width: 32px; height: 32px; font-size: 0.75rem;">2</button>
+                            <button class="icon-btn" style="width: 32px; height: 32px; font-size: 0.75rem;">3</button>
+                            <button class="icon-btn"
+                                style="width: auto; height: 32px; font-size: 0.75rem; padding: 0 0.75rem; border-radius: 0.5rem;">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

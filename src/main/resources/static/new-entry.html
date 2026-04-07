@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Entry | ArchiveHub</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="ri-shield-check-fill" style="color: var(--primary-color);"></i>
+                    <span>ArchiveHub</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <i class="ri-dashboard-line"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="files.html" class="nav-link">
+                            <i class="ri-folder-3-line"></i>
+                            <span>My Files</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="collections.html" class="nav-link">
+                            <i class="ri-heart-line"></i>
+                            <span>Collections</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="admin.html" class="nav-link">
+                            <i class="ri-shield-user-line"></i>
+                            <span>User Portal</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="profile.html" class="nav-link">
+                            <i class="ri-user-3-line"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" style="margin-top: auto;">
+                        <a href="#" id="logout-btn" class="nav-link">
+                            <i class="ri-logout-box-r-line"></i>
+                            <span>Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">MD</div>
+                    <div class="user-info">
+                        <h4>Madhan</h4>
+                        <p>madhan@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="search-bar">
+                    <i class="ri-search-line"></i>
+                    <input type="text" placeholder="Search archives...">
+                </div>
+
+                <div class="header-actions">
+                    <button class="icon-btn">
+                        <i class="ri-notification-3-line"></i>
+                    </button>
+                    <button class="icon-btn">
+                        <i class="ri-moon-line"></i>
+                    </button>
+                    <!-- Already on upload related page, maybe hide or disable? Keeping for consistency -->
+                    <a href="new-entry.html" class="btn-primary" style="opacity: 0.5; pointer-events: none;">
+                        <i class="ri-upload-cloud-2-line"></i>
+                        <span>Upload</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- New Entry Content -->
+            <div class="page-content">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1>Upload New Entry</h1>
+                        <p>Add new digital assets to the archive.</p>
+                    </div>
+                </div>
+
+                <div
+                    style="max-width: 800px; margin: 0 auto; background-color: var(--surface-color); padding: 3rem; border-radius: 1rem; border: 1px solid var(--border-color); text-align: center; border-style: dashed; border-width: 2px;">
+                    <div
+                        style="width: 80px; height: 80px; background-color: #eff6ff; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--primary-color); font-size: 2.5rem;">
+                        <i class="ri-upload-cloud-line"></i>
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Drag and drop files here
+                    </h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Supported formats: PDF, DOCX, JPG,
+                        PNG, MP4 (Max 10MB)</p>
+
+                    <div
+                        style="margin-bottom: 2rem; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto;">
+                        <label for="collectionSelect"
+                            style="display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-secondary);">Target
+                            Collection (Optional)</label>
+                        <select id="collectionSelect"
+                            style="width: 100%; padding: 0.75rem; border-radius: 0.5rem; border: 1px solid var(--border-color); background-color: var(--background-color); color: var(--text-primary); outline: none;">
+                            <option value="">No Collection (General)</option>
+                        </select>
+                    </div>
+
+                    <input type="file" id="fileInput" style="display: none;">
+                    <button class="btn-primary" style="margin: 0 auto;"
+                        onclick="document.getElementById('fileInput').click()">
+                        <i class="ri-folder-open-line"></i>
+                        <span>Browse Files</span>
+                    </button>
+
+                    <div id="uploadStatusContainer" style="margin-top: 3rem; text-align: left;">
+                        <!-- Uploading items will appear here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
