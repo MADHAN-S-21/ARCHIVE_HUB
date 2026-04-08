@@ -13,7 +13,7 @@ import java.util.UUID;
 @Service
 public class FileService {
 
-    private final Path root = Paths.get("uploads");
+    private final Path root = Paths.get(System.getProperty("java.io.tmpdir"), "uploads");
 
     public FileService() {
         try {
@@ -26,7 +26,7 @@ public class FileService {
     public String save(MultipartFile file) {
         try {
             String filename = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
-            Files.copy(file.getInputStream(), this.root.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(file.getInputStream(), root.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
             return filename;
         } catch (Exception e) {
             throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
